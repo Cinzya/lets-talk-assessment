@@ -1,5 +1,6 @@
 window.onload = async () => {
   let data = [];
+  const counter = document.querySelector("#productCount");
 
   // Fetch data
   try {
@@ -22,6 +23,7 @@ window.onload = async () => {
       const category = button.getAttribute("id");
       const filteredData = filterByCategory(data, category);
       console.log("Filtered data", filteredData);
+      size = filteredData.length;
       renderProducts(filteredData);
     });
   });
@@ -62,6 +64,9 @@ function renderProducts(products) {
       `;
     // Design has space for a description, but it's not in the assignment
     document.querySelector("#products").appendChild(productElement);
+
+    const counter = document.querySelector("#productCount");
+    counter.innerHTML = `(${products.length})`;
   });
 }
 
