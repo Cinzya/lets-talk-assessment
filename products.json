@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "category": "Elektronica",
+    "price": 1200,
+    "description": "Krachtige laptop met snelle processor en veel geheugen.",
+    "imageUrl": "[https://via.placeholder.com/150](https://via.placeholder.com/150)"
+  },
+  {
+    "id": 2,
+    "name": "T-shirt",
+    "category": "Kleding",
+    "price": 25,
+    "description": "Zwart T-shirt met korte mouwen.",
+    "imageUrl": "[https://via.placeholder.com/150](https://via.placeholder.com/150)"
+  },
+  {
+    "id": 3,
+    "name": "De Hobbit",
+    "category": "Boeken",
+    "price": 15,
+    "description": "Fantasy roman van J.R.R. Tolkien.",
+    "imageUrl": "[https://via.placeholder.com/150](https://via.placeholder.com/150)"
+  }
+]
