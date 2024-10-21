@@ -80,6 +80,9 @@ nav button {
   color: white;
   cursor: pointer;
 }
+.active {
+  color: var(--color-primary-a0);
+}
 
 /* Product Grid */
 #products {

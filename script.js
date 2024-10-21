@@ -15,6 +15,10 @@ window.onload = async () => {
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+      // Active styling
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
       const category = button.getAttribute("id");
       const filteredData = filterByCategory(data, category);
       console.log("Filtered data", filteredData);
@@ -24,6 +28,8 @@ window.onload = async () => {
 
   // Render all products
   renderProducts(data);
+  // Set All button to active
+  document.querySelector("#All").classList.add("active");
 };
 
 function filterByCategory(data, category) {
