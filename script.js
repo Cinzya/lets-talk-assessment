@@ -40,14 +40,21 @@ function removeProductsFromDOM() {
 function renderProducts(products) {
   removeProductsFromDOM();
   products.forEach((product) => {
+    const imageUrl = parseProductImageURL(product.imageUrl);
     const productElement = document.createElement("div");
     productElement.setAttribute("key", `${product.name}-${product.id}`);
     productElement.classList.add("product");
     productElement.innerHTML = `
-        <img src="${product.imageURL}" alt="${product.name}" />
+        <img src="${imageUrl}" alt="${product.name}" />
         <h2>${product.name}</h2>
         <span>${product.price}</span>
       `;
     document.querySelector("#products").appendChild(productElement);
   });
+}
+
+function parseProductImageURL(url) {
+  // parses the imageUrl in product.json so it can be used in the img tag
+  const pattern = /\[http[s]?:\/\/[^\]]+\]/;
+  return url.match(pattern)[0].replace("[", "").replace("]", "");
 }
