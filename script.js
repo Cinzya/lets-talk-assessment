@@ -21,6 +21,9 @@ window.onload = async () => {
       renderProducts(filteredData);
     });
   });
+
+  // Render all products
+  renderProducts(data);
 };
 
 function filterByCategory(data, category) {
