@@ -44,14 +44,17 @@ function renderProducts(products) {
   removeProductsFromDOM();
   products.forEach((product) => {
     const imageUrl = parseProductImageURL(product.imageUrl);
-    const productElement = document.createElement("div");
+    const productElement = document.createElement("article");
     productElement.setAttribute("key", `${product.name}-${product.id}`);
     productElement.classList.add("product");
-    productElement.innerHTML = `
+    productElement.innerHTML = ` 
         <img src="${imageUrl}" alt="${product.name}" />
-        <h2>${product.name}</h2>
-        <span>${product.price}</span>
+        <div class="details">
+        <h3>${product.name}</h3><br>
+        <span>€ ${product.price}</span>
+        </div>
       `;
+    // Design has space for a description, but it's not in the assignment
     document.querySelector("#products").appendChild(productElement);
   });
 }
