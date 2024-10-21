@@ -18,6 +18,7 @@ window.onload = async () => {
       const category = button.getAttribute("id");
       const filteredData = filterByCategory(data, category);
       console.log("Filtered data", filteredData);
+      renderProducts(filteredData);
     });
   });
 };
@@ -27,4 +28,26 @@ function filterByCategory(data, category) {
     return data;
   }
   return data.filter((item) => item.category === category);
+}
+
+function removeProductsFromDOM() {
+  const products = document.querySelector("#products");
+  while (products.firstChild) {
+    products.removeChild(products.firstChild);
+  }
+}
+
+function renderProducts(products) {
+  removeProductsFromDOM();
+  products.forEach((product) => {
+    const productElement = document.createElement("div");
+    productElement.setAttribute("key", `${product.name}-${product.id}`);
+    productElement.classList.add("product");
+    productElement.innerHTML = `
+        <img src="${product.imageURL}" alt="${product.name}" />
+        <h2>${product.name}</h2>
+        <span>${product.price}</span>
+      `;
+    document.querySelector("#products").appendChild(productElement);
+  });
 }
